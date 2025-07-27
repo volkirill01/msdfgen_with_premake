@@ -2,8 +2,8 @@ project "freetype"
 	location "freetype"
 	kind "StaticLib"
 	language "C"
-    staticruntime "off"
-	
+	staticruntime "off"
+
 	warnings "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -85,14 +85,14 @@ project "freetype"
 	filter "configurations:Dist"
 		runtime "Release"
 		optimize "on"
-        symbols "off"
+		symbols "off"
 
 project "msdfgen"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-    staticruntime "off"
-	
+	staticruntime "off"
+
 	warnings "Off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -131,13 +131,15 @@ project "msdfgen"
 
 	filter "configurations:Debug"
 		runtime "Debug"
-		symbols "on"
+		symbols "On"
+		optimize "Off"
 
 	filter "configurations:Release"
 		runtime "Release"
-		optimize "on"
+		symbols "On"
+		optimize "On"
 
 	filter "configurations:Dist"
 		runtime "Release"
-		optimize "on"
-        symbols "off"
+		symbols "Off"
+		optimize "Speed"
